@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">joe-salon</string>
+    <string name="title_activity_main">joe-salon</string>
+    <string name="package_name">com.joesalon.app</string>
+    <string name="custom_url_scheme">com.joesalon.app</string>
+</resources>

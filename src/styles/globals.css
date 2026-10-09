@@ -1,0 +1,511 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+:root {
+  --bg: #f4f6f8;
+
+  --surface: #ffffff;
+  --surface-soft: #f8fafc;
+  --surface-softer: #fbfcfe;
+
+  --sidebar: #111315;
+  --sidebar-soft: #1a1d21;
+
+  /* 🔥 GOLD الأساسي */
+  --primary: #d4af37;
+  --primary-hover: #b8932f;
+  --primary-soft: rgba(212, 175, 55, 0.12);
+  --primary-ring: rgba(212, 175, 55, 0.25);
+
+  --text: #111827;
+  --text-soft: #6b7280;
+  --text-faint: #94a3b8;
+
+  --border: #e7edf3;
+  --border-strong: #dbe4ec;
+  --border-gold: rgba(212, 175, 55, 0.45);
+
+  --shadow: 0 10px 24px rgba(15, 23, 42, 0.05);
+  --shadow-soft: 0 4px 12px rgba(15, 23, 42, 0.04);
+
+  --radius-xl: 24px;
+  --radius-lg: 20px;
+  --radius-md: 16px;
+  --radius-sm: 12px;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+/* ================= INPUTS ================= */
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  outline: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 13px 15px;
+  color: var(--text);
+  transition: 0.2s ease;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #9aa6b2;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  border-color: var(--border-strong);
+}
+
+/* 🔥 focus بدون أي أزرق */
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--border-gold);
+  box-shadow: 0 0 0 3px var(--primary-soft);
+  background: #fff;
+}
+
+/* ================= CARDS ================= */
+
+.section-card,
+.dashboard-stat-card,
+.dashboard-panel-card,
+.booking-card,
+.cashier-card,
+.history-card,
+.history-stat-card,
+.settings-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ❌ حذف أي glow نهائي */
+.section-card::before,
+.dashboard-stat-card::before,
+.dashboard-panel-card::before,
+.booking-card::before,
+.cashier-card::before,
+.history-card::before,
+.history-stat-card::before,
+.settings-card::before {
+  display: none;
+}
+
+.section-card > *,
+.dashboard-stat-card > *,
+.dashboard-panel-card > *,
+.booking-card > *,
+.cashier-card > *,
+.history-card > *,
+.history-stat-card > *,
+.settings-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ================= TEXT ================= */
+
+.card-title,
+.dashboard-panel-header h3,
+.booking-card h2,
+.cashier-card h2,
+.settings-card h2,
+.history-section-header h2 {
+  font-size: 22px;
+  line-height: 1.15;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+.card-subtitle,
+.dashboard-panel-header span,
+.booking-table-header span,
+.history-section-header span,
+.cashier-table-header p {
+  color: var(--text-soft);
+  font-size: 14px;
+}
+
+/* ================= CHIPS ================= */
+
+.soft-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 34px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: #fbfaf4;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+  color: #7a6740;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* ================= BUTTONS ================= */
+
+.primary-btn,
+.settings-form button,
+.booking-form button,
+.cashier-form button,
+.print-btn {
+  background: var(--primary);
+  color: #ffffff;
+  border-radius: 16px;
+  font-weight: 700;
+  transition: 0.2s ease;
+  box-shadow: 0 6px 14px rgba(212, 175, 55, 0.18);
+}
+
+.primary-btn:hover,
+.settings-form button:hover,
+.booking-form button:hover,
+.cashier-form button:hover,
+.print-btn:hover {
+  background: var(--primary-hover);
+  transform: translateY(-1px);
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.delete-btn,
+.cancel-btn,
+.done-btn,
+.move-btn {
+  color: white;
+  padding: 9px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover,
+.cancel-btn:hover,
+.done-btn:hover,
+.move-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(0.98);
+}
+
+.done-btn {
+  background: #16a34a;
+}
+
+.cancel-btn {
+  background: #f59e0b;
+}
+
+.move-btn {
+  background: var(--primary);
+}
+
+.delete-btn {
+  background: #ef4444;
+}
+
+/* ================= EMPTY ================= */
+
+.empty-text {
+  color: var(--text-soft);
+  font-size: 14px;
+  background: #fcfcfd;
+  border: 1px dashed var(--border-strong);
+  border-radius: 18px;
+  padding: 18px;
+}
+
+/* ================= TABLE ================= */
+
+.table-shell {
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.table-note {
+  color: var(--text-soft);
+  font-size: 12px;
+}
+
+/* ================= PAGE INTRO ================= */
+
+.page-intro-card {
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 28px;
+  box-shadow: var(--shadow-soft);
+  padding: 24px;
+}
+
+.page-intro-card::before {
+  display: none;
+}
+
+.page-intro-card h2 {
+  margin-top: 14px;
+  margin-bottom: 8px;
+  font-size: 28px;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.page-intro-card p {
+  color: var(--text-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 760px;
+}
+.iphone-login-page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(212, 175, 55, 0.18), transparent 30%),
+    linear-gradient(180deg, #000000 0%, #0a0a0a 45%, #0b1220 100%);
+}
+
+.iphone-login-overlay {
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+}
+
+.iphone-login-box {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 420px;
+  padding: 32px 24px 40px;
+  text-align: center;
+  color: white;
+}
+
+.iphone-login-logo {
+  width: 300px;
+  height: 220px;
+  object-fit: contain;
+  margin: 0 auto 18px;
+  display: block;
+}
+
+.iphone-login-title {
+  font-size: 30px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.iphone-login-subtitle {
+  color: rgba(255, 255, 255, 0.72);
+  font-size: 15px;
+  margin-bottom: 28px;
+}
+
+.iphone-passcode-dots {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.passcode-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.65);
+  background: transparent;
+  transition: 0.2s ease;
+}
+
+.passcode-dot.filled {
+  background: white;
+  border-color: white;
+}
+
+.iphone-login-error {
+  color: #ffb4b4;
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.iphone-keypad {
+  display: grid;
+  grid-template-columns: repeat(3, 86px);
+  justify-content: center;
+  gap: 14px;
+}
+
+.keypad-btn {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  font-size: 30px;
+  font-weight: 500;
+  backdrop-filter: blur(10px);
+  transition: 0.2s ease;
+}
+
+.keypad-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.03);
+}
+
+.keypad-text-btn {
+  width: 86px;
+  height: 86px;
+  border-radius: 50%;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+.keypad-text-btn:hover {
+  color: white;
+}
+.customer-details-header {
+  align-items: flex-start;
+}
+
+.customer-summary-grid-upgraded {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.summary-box-highlight {
+  background: linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%);
+  border: 1px solid #dbeafe;
+}
+
+.service-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.service-chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eff6ff;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #bfdbfe;
+}
+
+.remaining-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.remaining-badge.warning {
+  background: #fff7ed;
+  color: #c2410c;
+  border: 1px solid #fdba74;
+}
+
+.remaining-badge.clear {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.payment-status-badge {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.payment-status-badge.paid {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.payment-status-badge.partial {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.payment-status-badge.unpaid {
+  background: #fee2e2;
+  color: #b91c1c;
+}
+
+.danger-text {
+  color: #dc2626;
+}
+
+.upgraded-history-table td {
+  vertical-align: top;
+}
+
+@media (max-width: 1200px) {
+  .customer-summary-grid-upgraded {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .customer-summary-grid-upgraded {
+    grid-template-columns: 1fr;
+  }
+
+  .service-chips {
+    max-width: 220px;
+  }
+}
+.history-filters-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+  gap: 12px;
+}
